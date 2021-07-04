@@ -1,0 +1,58 @@
+<canvas style="border:1px solid black" id="canvas" width="3200" height="3200"></canvas>
+Zoom: <input type="number" onchange="onZoomChange(this.value)" value="100">
+
+<script>
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var colors = ["red", "blue", "green", "yellow"];
+var colorIndex = 0;
+var zoom = 1;
+ctx.setTransform(zoom, 0, 0, zoom, 0, 0);
+ctx.globalAlpha = 0.5;
+
+var maxX = 0;
+var maxY = 0;
+
+function addShape(shapeJsonString) {
+  
+  var shapeJson = JSON.parse(shapeJsonString);
+  for(var point of shapeJson.points) {
+    if(point.x > maxX) maxX = point.x;
+    if(point.y > maxY) maxY = point.y;
+  }
+  canvas.width = maxX + 20;
+  canvas.height = maxY + 20;
+
+}
+
+function drawShape(shapeJsonString) {
+  var shapeJson = JSON.parse(shapeJsonString);
+
+  ctx.beginPath();
+  var vertices = shapeJson.points;
+  ctx.moveTo(vertices[0].x, vertices[0].y);
+  for(let i = 1; i < vertices.length; i++) {
+    ctx.lineTo(vertices[i].x, vertices[i].y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = colors[colorIndex];
+  colorIndex++;
+  if(colorIndex >= colors.length) colorIndex = 0;
+  ctx.fill();
+  /*
+  ctx.lineWidth = lineThickness;
+  ctx.strokeStyle = lineColor;
+  ctx.stroke();
+  */
+}
+
+var input = prompt("Enter shape 1 json");
+addShape(input);
+var input2 = prompt("Enter shape 2 json");
+addShape(input2);
+
+drawShape(input);
+drawShape(input2);
+
+</script>

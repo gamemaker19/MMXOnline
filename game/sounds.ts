@@ -1,0 +1,1 @@
+let soundFiles = ["csting.wav","dash.wav","die.wav","explosion.wav","heal.wav","hit.wav","hurt.wav","jump.wav","land.wav","torpedo.wav","weakness.wav"];

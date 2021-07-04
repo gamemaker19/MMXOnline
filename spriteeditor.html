@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<title>Sprite editor</title>
+</head>
+<body>
+
+<div id="sprite-list-container">
+  <div id="app1">
+    <h1>Sprites</h1>
+    <button v-on:click="addSprite()">New sprite</button>
+    <div class="sprite-list-scroll">
+      <div class="sprite-item" v-for="sprite in sprites" v-on:click="changeSprite(sprite)"
+        v-bind:class="{ selected: sprite === selectedSprite }">{{ sprite.name }}</div>
+    </div>
+    <br>
+  </div>
+</div>
+
+<div class="canvas-section">
+  <canvas id="canvas1" width="700" height="600"></canvas>
+  <div id="app2">
+    <div v-if="selectedSprite">
+      
+      <button v-on:click="playAnim()">{{ isAnimPlaying ? "Stop" : "Play" }}</button>
+      <button v-on:click="saveSprite()">Save</button>
+      <button v-on:click="saveSprites()">Save All</button>
+      
+      Zoom:<input type="number" style="width: 50px" v-model:number="displayZoom" @change="redraw()"> %
+      <input type="checkbox" v-model="hideGizmos" @change="redraw()"/>Hide gizmos
+      <input type="checkbox" v-model="flipX" @change="redraw()"/>Flip Horizontal
+      <input type="checkbox" v-model="flipY" @change="redraw()"/>Flip Vertical
+
+
+      <div>
+        Spritesheet:
+        <select v-model="selectedSpritesheet" @change="onSpritesheetChange(selectedSpritesheet)">
+          <option v-for="spritesheet in spritesheets" v-bind:value="spritesheet">{{ spritesheet.path }}</option>
+        </select>
+      </div>
+
+      <div>
+        Alignment:
+        <select v-model="selectedSprite.alignment" @change="onSpriteAlignmentChange()">
+          <option v-for="alignment in alignments" v-bind:value="alignment">{{ alignment }}</option>
+        </select>
+        Wrap mode:
+        <select v-model="selectedSprite.wrapMode" @change="onWrapModeChange()">
+          <option v-for="wrapMode in wrapModes" v-bind:value="wrapMode">{{ wrapMode }}</option>
+        </select>
+      </div>
+
+      <div class="hitbox-section">
+        Global Hitboxes<br>
+        <div v-for="hitbox in selectedSprite.hitboxes" class="frame-data" v-bind:class="{ 'selected-frame': selectedHitbox === hitbox }">
+          w<input type="text" v-model.number="hitbox.width" class="short-input" @change="redraw()" />
+          h<input type="text" v-model.number="hitbox.height" class="short-input" @change="redraw()" />
+          x-off<input type="text" v-model.number="hitbox.offset.x" class="short-input" @change="redraw()" />
+          y-off<input type="text" v-model.number="hitbox.offset.y" class="short-input" @change="redraw()" />
+          flag<input type="text" class="hitbox-tag-input" v-model="hitbox.flag" @change="redraw()" />
+          trigger?<input type="checkbox" class="hitbox-tag-input" v-model="hitbox.isTrigger" @change="redraw()" />
+          <button v-on:click="selectHitbox(hitbox)">Select</button>
+          <button v-on:click="deleteHitbox(selectedSprite.hitboxes, hitbox)">Delete</button>
+        </div>
+        <button v-on:click="addHitbox(selectedSprite)">New hitbox</button>
+      </div>
+
+      <div class="hitbox-section" v-if="selectedFrame">
+        Frame Hitboxes<br>
+        <div v-for="hitbox in selectedFrame.hitboxes" class="frame-data" v-bind:class="{ 'selected-frame': selectedHitbox === hitbox }">
+          w<input type="text" v-model.number="hitbox.width" class="short-input" @change="redraw()" />
+          h<input type="text" v-model.number="hitbox.height" class="short-input" @change="redraw()" />
+          x-off<input type="text" v-model.number="hitbox.offset.x" class="short-input" @change="redraw()" />
+          y-off<input type="text" v-model.number="hitbox.offset.y" class="short-input" @change="redraw()" />
+          flag<input type="text" class="hitbox-tag-input" v-model="hitbox.flag" @change="redraw()" />
+          tr?<input type="checkbox" class="hitbox-tag-input" v-model="hitbox.isTrigger" @change="redraw()" />
+          <button v-on:click="selectHitbox(hitbox)">Select</button>
+          <button v-on:click="deleteHitbox(selectedFrame.hitboxes, hitbox)">Delete</button>
+        </div>
+        <button v-on:click="addHitbox(selectedFrame)">New hitbox</button>
+      </div>
+
+      <br/>
+      <div class="hitbox-section" v-if="selectedFrame">
+        Frame POIs<br>
+        <div v-for="poi in selectedFrame.POIs" class="frame-data" v-bind:class="{ 'selected-frame': selectedPOI === poi }">
+          x<input type="text" v-model.number="poi.x" class="short-input" @change="redraw()" />
+          y<input type="text" v-model.number="poi.y" class="short-input" @change="redraw()" />
+          <input type="text" class="hitbox-tag-input" v-model="poi.tags" @change="redraw()" />
+          <button v-on:click="selectPOI(poi)">Select</button>
+          <button v-on:click="deletePOI(selectedFrame.POIs, poi)">Delete</button>
+        </div>
+        <button v-on:click="addPOIMode = true;">New POI</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="canvas-section">
+  <div class="canvas-wrapper" style="width:1000px;height:2000px">
+    <canvas id="canvas2" id="canvas"></canvas>  
+  </div>
+  <div id="app3">
+    <div v-if="selectedSpritesheet">
+      <div v-for="(frame, index) in selectedSprite.frames" v-on:click="selectFrame(frame)" class="frame-data unselectable" v-bind:class=" { 'selected-frame': selectedFrame === frame }">
+        <b>Frame {{ index + 1 }} </b>
+        secs: <input type="number" style="width: 40px" v-model.number="frame.duration" /> 
+        x-off: <input type="number" style="width: 40px" v-model.number="frame.offset.x" @change="redraw()" /> 
+        y-off: <input type="number" style="width: 40px" v-model.number="frame.offset.y" @change="redraw()" /> 
+        <!--<button v-on:click="selectFrame(frame)">Select</button>-->
+        <button v-on:click="deleteFrame(frame)">Delete</button>
+      </div>
+      <div v-if="selectedSprite.frames.length > 0">
+        Set bulk duration: <input type="number" style="width: 40px" v-model.number="bulkDuration" @change="onBulkDurationChange()" /><br>
+        Loop start frame: <input type="number" style="width: 40px" v-model.number="selectedSprite.loopStartFrame" @change="onLoopStartChange()" /><br>
+      </div>
+      <button v-if="this.selectedFrame && !isSelectedFrameAdded()" v-on:click="addPendingFrame()">Add as frame</button>
+      <button v-if="selectedSprite.frames.length > 0" v-on:click="reverseFrames()">Reverse frames</button>    
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+<script src="editor/input.js"></script>
+<script src="editor/helpers.js"></script>
+<script src="editor/classes.js"></script>
+<script src="editor/tools.js"></script>
+<script src="editor/spriteEditor.js"></script>
+
+</body>
+</html>

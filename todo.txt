@@ -1,0 +1,68 @@
+-Zeo balance
+
+-MTV issues:
+  -Bug: when 2 projectiles are right inside each other, they behave strangely. investigate
+  -MTV issue: log it to a DB or somewhere whenever it happens
+  -MTV occasionally snaps out too far
+  -Some MTV issues (snapping out). Test the climb in gallery stage, and inclines
+  -Build a visual collision tester?
+
+===============
+Neat
+===============
+Game balancing: add costs to the weapon charges
+Healing capsules in CTF
+
+===============
+Optimization
+===============
+
+-Performance concerns: death effect, change sprite indexof 
+-Figure out how to measure GPU performance precisely
+-Avoid new's
+-Object pool for actors
+-Only draw things on-screen
+-Use particle containers for:
+  -HUD stuff
+  -Backgrounds
+  -Effects
+
+===============
+Abstraction
+===============
+-Investigate why debugging in Chrome is broken
+-CheckCollisionActor, add gameobject array param
+-Object instantiation
+-System of abstraction for handling collisions between entities
+  -Electric spark should destroy charged rolling shield, but not regular
+  -Enemy bullets should destroy homing torpedo, but not friendly ones
+  -Enemies should trigger with sled, but not allies
+
+===============
+Level editor
+===============
+-Rename sprites/levels/etc
+-Remember last tool used and keep it open
+-Basic undo
+-The json data binding is weird/has issues
+-be able to select under images/change z-order
+-Rectangle select on the spritesheet canvas
+
+========================
+LEVEL EDITOR DOCS
+========================
+Non-serializable code locations:
+helpers.js: Search for 
+  function serializeES6(obj) {
+levelEditor.js: Search for
+  saveLevel() {
+sprite path saving is automatic using the name. 
+onDeserialize() and onSerialize() of the classes that you are deserializing/serializing.
+
+{
+  "nodeName": "",
+  "ladderName": "",
+  "isJumpNode": false,
+  "isDropNode": false,
+  "isLadderNode": false
+}

@@ -1,0 +1,37 @@
+{
+  "name": "appname",
+  "version": "1.0.0",
+  "description": "Dependencies and scripts for the application.",
+  "repository": {
+    "type": "git",
+    "url": "http://test.poker.js"
+  },
+  "scripts": {
+    "start": "tsc poker.ts"
+  },
+  "babel": {
+    "plugins": [
+      "transform-runtime"
+    ],
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^2.4.1",
+    "@types/jquery": "^3.3.1",
+    "@types/lodash": "~4.14.108",
+    "@types/node": "^9.6.4",
+    "@types/vue": " ^2.0.0",
+    "@types/howler": "^2.0.5",
+    "@types/pixi.js": "~4.8.0",
+    "express": "^4.16.3",
+    "body-parser": " ^1.18.2",
+    "connect": "^3.6.6",
+    "serve-static": "^1.13.2"
+  },
+  "dependencies": {
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,78 @@
+body {
+  background-color: #111111;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1400px;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#logo-wrapper {
+  width: 800px;
+  margin-left: 250px;
+}
+
+#logo {
+  width: 800px;
+}
+
+#weapon1, #weapon2, #weapon3, #weapon4, #weapon5, #weapon6, #weapon7, #weapon8, #weapon9 {
+  background: url("images/weapons.png?v=1.0.0");
+  display: block;
+  width: 32px;
+  height: 32px;
+  float: left;
+}
+
+.weapon-label {
+  display: block;
+  float: left;
+  margin-top: 2px;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+.weapon-stats {
+  margin-top: 8px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+#weapon1 {
+  background-position: 0 0;
+}
+
+#weapon2 {
+  background-position: -32px 0;
+}
+
+#weapon3 {
+  background-position: -64px 0;
+}
+
+#weapon4 {
+  background-position: -96px 0;
+}
+
+#weapon5 {
+  background-position: -128px 0;
+}
+
+#weapon6 {
+  background-position: -160px 0;
+}
+
+#weapon7 {
+  background-position: -192px 0;
+}
+
+#weapon8 {
+  background-position: -224px 0;
+}
+
+#weapon9 {
+  background-position: -256px 0;
+}

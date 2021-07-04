@@ -1,0 +1,429 @@
+{
+  "className": "Sprite",
+  "hitboxes": [],
+  "frames": [
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 507,
+          "y": 145
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 546,
+          "y": 189
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 0,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 554,
+          "y": 146
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 591,
+          "y": 189
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 1,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 597,
+          "y": 146
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 638,
+          "y": 189
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": -1,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 643,
+          "y": 146
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 695,
+          "y": 189
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": -6,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 701,
+          "y": 145
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 750,
+          "y": 189
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": -5,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 764,
+          "y": 131
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 826,
+          "y": 199
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 14,
+        "y": 0
+      },
+      "hitboxes": [
+        {
+          "className": "Hitbox",
+          "tags": "",
+          "width": 45,
+          "height": 46,
+          "offset": {
+            "className": "Point",
+            "x": 25.333333333333314,
+            "y": -23.666666666666657
+          },
+          "rect": {
+            "className": "Rect",
+            "topLeftPoint": {
+              "className": "Point",
+              "x": 352.8333333333333,
+              "y": 230.33333333333334
+            },
+            "botRightPoint": {
+              "className": "Point",
+              "x": 397.8333333333333,
+              "y": 276.33333333333337
+            }
+          },
+          "isTrigger": true,
+          "flag": 1
+        }
+      ],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 12,
+          "y": 692
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 92,
+          "y": 744
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 23,
+        "y": 0
+      },
+      "hitboxes": [
+        {
+          "className": "Hitbox",
+          "tags": "",
+          "width": 44,
+          "height": 50,
+          "offset": {
+            "className": "Point",
+            "x": 43.00000000000006,
+            "y": -3.3333333333332575
+          },
+          "rect": {
+            "className": "Rect",
+            "topLeftPoint": {
+              "className": "Point",
+              "x": 371.00000000000006,
+              "y": 246.66666666666674
+            },
+            "botRightPoint": {
+              "className": "Point",
+              "x": 415.00000000000006,
+              "y": 296.66666666666674
+            }
+          },
+          "isTrigger": true,
+          "flag": 1
+        }
+      ],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 102,
+          "y": 702
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 182,
+          "y": 744
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 23,
+        "y": 0
+      },
+      "hitboxes": [
+        {
+          "className": "Hitbox",
+          "tags": "",
+          "width": 46,
+          "height": 18,
+          "offset": {
+            "className": "Point",
+            "x": 42.333333333333314,
+            "y": -1.3333333333333144
+          },
+          "rect": {
+            "className": "Rect",
+            "topLeftPoint": {
+              "className": "Point",
+              "x": 369.3333333333333,
+              "y": 280.6666666666667
+            },
+            "botRightPoint": {
+              "className": "Point",
+              "x": 415.3333333333333,
+              "y": 298.6666666666667
+            }
+          },
+          "isTrigger": true,
+          "flag": 1
+        }
+      ],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 192,
+          "y": 710
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 272,
+          "y": 745
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 23,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 281,
+          "y": 709
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 342,
+          "y": 744
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 14,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 364,
+          "y": 709
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 413,
+          "y": 744
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 8,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 441,
+          "y": 709
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 485,
+          "y": 744
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 6,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 66,
+          "y": 518
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 119,
+          "y": 561
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": -8,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 17,
+          "y": 519
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 54,
+          "y": 562
+        }
+      },
+      "duration": 0.03,
+      "offset": {
+        "className": "Point",
+        "x": 0,
+        "y": 0
+      },
+      "hitboxes": [],
+      "POIs": []
+    }
+  ],
+  "POIs": [],
+  "name": "zero_attack",
+  "path": "assets/sprites/zero_attack.json",
+  "alignment": "botmid",
+  "wrapMode": "once",
+  "spritesheetPath": "assets/spritesheets/zero.png"
+}

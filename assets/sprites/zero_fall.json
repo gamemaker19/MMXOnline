@@ -1,0 +1,108 @@
+{
+  "className": "Sprite",
+  "hitboxes": [],
+  "frames": [
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 279,
+          "y": 182
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 306,
+          "y": 241
+        }
+      },
+      "duration": 0.066,
+      "offset": {
+        "className": "Point",
+        "x": -3,
+        "y": -2
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 320,
+          "y": 181
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 344,
+          "y": 241
+        }
+      },
+      "duration": 0.066,
+      "offset": {
+        "className": "Point",
+        "x": -1,
+        "y": -2
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 361,
+          "y": 182
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 384,
+          "y": 241
+        }
+      },
+      "duration": 0.066,
+      "offset": {
+        "className": "Point",
+        "x": -1,
+        "y": -2
+      },
+      "hitboxes": [],
+      "POIs": []
+    },
+    {
+      "className": "Frame",
+      "rect": {
+        "className": "Rect",
+        "topLeftPoint": {
+          "className": "Point",
+          "x": 402,
+          "y": 181
+        },
+        "botRightPoint": {
+          "className": "Point",
+          "x": 427,
+          "y": 241
+        }
+      },
+      "duration": 0.066,
+      "offset": {
+        "className": "Point",
+        "x": -2,
+        "y": -2
+      },
+      "hitboxes": [],
+      "POIs": []
+    }
+  ],
+  "POIs": [],
+  "name": "zero_fall",
+  "path": "assets/sprites/zero_fall.json",
+  "alignment": "botmid",
+  "wrapMode": "loop",
+  "spritesheetPath": "assets/spritesheets/zero.png"
+}

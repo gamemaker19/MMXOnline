@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<title>Level editor</title>
+</head>
+<body>
+
+<div id="sprite-list-container">
+  <h1>Levels</h1>
+  <div id="app1">
+    <div class="sprite-item" v-for="level in levels" v-on:click="changeLevel(level)"
+      v-bind:class="{ selected: level === selectedLevel }">{{ level.name }}</div>
+    <br>
+    <button v-on:click="addLevel()">New level</button>
+    <input type="text" v-model="newLevelName" style="width: 140px" />
+
+    <div>
+      Background:
+      <select v-model="selectedBackground" @change="onBackgroundChange(selectedBackground)" style="width: 90%">
+        <option v-for="background in backgrounds" v-bind:value="background">{{ background.path }}</option>
+      </select>
+    </div>
+
+  </div>
+</div>
+
+<div id="sprite-list-container">
+  <h1>Objects</h1>
+  <div id="app2">
+    <div class="sprite-item" v-for="obj in objects" v-on:click="changeObject(obj)"
+      v-bind:class="{ selected: obj === selectedObject }">{{ obj.name }}</div>
+    <br>
+  </div>
+</div>
+
+<div class="canvas-section">
+
+  <div class="level-canvas-wrapper" style="width:2000px;height:1000px">
+    <canvas id="level-canvas" width="2000" height="1000"></canvas>
+  </div>
+
+  <div id="app3">
+    <div v-if="selectedLevel">
+      
+      <button v-on:click="play()">{{ isPlaying ? "Stop" : "Play" }}</button>
+      <button v-on:click="saveLevel()">Save</button>
+      Show instance Labels<input type="checkbox" v-model="showInstanceLabels" />
+      Zoom:<input type="number" style="width: 50px" v-model:number="displayZoom" @change="redraw()"> %
+      <!--<input type="checkbox" v-model="hideGizmos" @change="redraw()"/>Hide gizmos-->
+
+      <div id="instance-properties" v-if="selectedInstances.length > 0">
+        <h3>Selected instance properties</h3>
+        <div class="properties">Name <input type="text" v-model.number="selectedInstances[0].name" @change="redraw()" /></div>
+        <div class="properties"><span class="properties">Properties</span> <textarea rows="14" cols="50" v-on:change="changeProperties">{{ selectedInstances[0].getPropertiesJson() }}</textarea></div>
+        <!--
+        x<input type="text" v-model.number="selectedInstances[0].pos.x" class="short-input" @change="redraw()" />
+        y<input type="text" v-model.number="selectedInstances[0].pos.y" class="short-input" @change="redraw()" />
+        -->
+        <!--tag<input type="text" v-model.number="selectedInstances[0].tag" class="short-input" @change="redraw()" />-->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="sprite-list-container">
+  <div id="app4">
+    <h1>Instances</h1>
+    <button v-if="selectedLevel" v-on:click="sortInstances()">Sort by name</button>
+    <div v-if="selectedLevel" class="sprite-list-scroll">
+      <div class="sprite-item" v-for="instance in selectedLevel.instances" v-on:click="onInstanceClick(instance)"
+        v-bind:class="{ selected: selectedInstances.indexOf(instance) !== -1 }">{{ instance.name }}</div>
+      <br>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+<script src="editor/objects.js"></script>
+<script src="editor/input.js"></script>
+<script src="editor/helpers.js"></script>
+<script src="editor/classes.js"></script>
+<script src="editor/tools.js"></script>
+<script src="editor/levelEditor.js"></script>
+
+</body>
+</html>

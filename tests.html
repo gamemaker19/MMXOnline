@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="assets/gamePage.css">
+<title>Game</title>
+</head>
+<body>
+
+  <div id="content">
+    <canvas id="canvas" width="1200" height="800"></canvas>
+  
+    <div id="app">
+      <input type="checkbox" v-model="options.showHitboxes" @change="onChange()">Show hitboxes? 
+      <input type="checkbox" v-model="options.playMusic" @change="onChange()">Play Music?<br>
+      <input type="checkbox" v-model="options.alwaysFlinch" @change="onChange()">Always flinch? <br>
+      <input type="checkbox" v-model="options.invulnFrames" @change="onChange()">Invuln frames? <br>
+      <input type="checkbox" v-model="options.antiAlias" @change="onChange()">Anti Alias? <br>
+    </div>
+  
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.1/lodash.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+<script src="node_modules/howler/dist/howler.min.js"></script>
+<script src="node_modules/systemjs/dist/system.js"></script>
+<script src="main.js"></script>
+<script>
+  SystemJS.import("game").then(function(game) {
+    game.game.test();
+  });
+</script>
+
+</body>
+</html>
