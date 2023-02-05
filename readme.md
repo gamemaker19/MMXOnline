@@ -1,1 +1,1 @@
-Welcome to Gamemaker19's Mega Man X Online: Deathmatch repository! This repository hosts the source code for the project.
+This is the repo for the (now defunct) web version of MMX Online Deathmatch. The repro for the desktop version is private. However this repo hosts release builds of desktop MMXOD because the desktop version is private.
