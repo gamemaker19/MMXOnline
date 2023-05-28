@@ -31,7 +31,6 @@
     "connect": "^3.6.6",
     "serve-static": "^1.13.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "license": "MIT"
 }
